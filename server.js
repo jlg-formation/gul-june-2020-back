@@ -4,7 +4,7 @@ const serveIndex = require('serve-index');
 const app = express();
 
 app.use((req, res, next) => {
-  console.log("req.url", req.url);
+  console.log('req.url', req.url);
   next();
 });
 

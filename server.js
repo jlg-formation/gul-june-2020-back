@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
-  setTimeout(next, 1000);
+  setTimeout(next, 0);
 });
 
 app.get('/ws/articles', (req, res) => {

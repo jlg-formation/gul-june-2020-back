@@ -52,6 +52,10 @@ app.delete('/ws/articles', (req, res) => {
   res.status(204).end();
 });
 
+app.get(['/stock*', '/legal'], (req, res) => {
+  res.sendFile('./index.html', { root: 'www' });
+});
+
 app.use(express.static('./www'));
 app.use(serveIndex('./www', { icons: true }));
 

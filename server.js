@@ -39,6 +39,19 @@ app.post('/ws/articles', (req, res) => {
   res.status(201).json(article);
 });
 
+app.delete('/ws/articles', (req, res) => {
+  const ids = req.body;
+  console.log('ids: ', ids);
+  ids.forEach((id) => {
+    const index = articles.findIndex((a) => a.id === id);
+    if (index === -1) {
+      return;
+    }
+    articles.splice(index, 1);
+  });
+  res.status(204).end();
+});
+
 app.use(express.static('./www'));
 app.use(serveIndex('./www', { icons: true }));
 
